@@ -51,7 +51,7 @@
 
 1. Клонуйте репозиторій та перейдіть у директорію проєкту:
      ```sh
-     git clone <repo-url>
+     git clone https://github.com/Oleksandr-VFU/hw49react-10082025.git
      cd hw12-react-vitest-app
      ```
 2. Встановіть залежності:
@@ -69,4 +69,4 @@
 ```markdown
 5. Результат успішного тесту виглядатиме так:
 
-![Результат Тестування](assets/tests.png)
+![Результат Тестування](./src/assets/tests.PNG)
