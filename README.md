@@ -66,7 +66,6 @@
      ```sh
      npm run test
      ```
-```markdown
 5. Результат успішного тесту виглядатиме так:
 
 ![Результат Тестування](https://raw.githubusercontent.com/Oleksandr-VFU/hw49react-10082025/master/src/assets/tests.PNG)
