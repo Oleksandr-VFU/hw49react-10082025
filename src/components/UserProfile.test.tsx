@@ -14,6 +14,22 @@ beforeEach(() => {
     vi.clearAllMocks();
 })
 
+// Статичний контент, що описує дане завдання
+describe('Статичний контент додатку', () => {
+    it('відображається інформація про мету завдання', () => {
+        mockedAxios.get = vi.fn().mockResolvedValue({
+            data: {
+                name: 'Chelsey Dietrich',
+                email: 'Lucio_Hettinger@annie.ca',
+                company: {name: 'Keebler LLC'}
+            }
+        });
+        render(<UserProfile />)
+        const staticContent = screen.getByText('Тестування асинхронної логіки React-компонентів з використанням Vitest та React Testing Library');
+        expect(staticContent).toBeInTheDocument();
+    })  
+});
+
 // Індикатор завантаження даних
 describe('Індикатор завантаження', () => {
     it('відображається під час виконання запиту', () => {
