@@ -1,12 +1,72 @@
-# React + Vite
+# Тестування асинхронної логіки React-компонентів
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Мета завдання
 
-Currently, two official plugins are available:
+Розробити React-компонент, який виконує асинхронний запит до API, та написати тести для перевірки його роботи за допомогою мокування.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Реалізація
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Ініціалізація проєкту
+
+- Проєкт було ініціалізовано за допомогою команди:
+    ```sh
+    npm create vite@latest hw12-react-vitest-app -- --template react
+    ```
+- Далі виконано встановлення залежностей та налаштування для тестування.
+
+### 2. Створення компоненту
+
+- У директорії `src/components` створено файл **UserProfile.tsx**.
+- Реалізовано компонент, який виконує асинхронний GET-запит до API [https://jsonplaceholder.typicode.com/users/5](https://jsonplaceholder.typicode.com/users/5) для отримання даних про користувача (ім'я, електронна пошта, назва компанії).
+- Компонент відображає:
+    - Індикатор завантаження під час виконання запиту.
+    - Дані користувача після успішного запиту.
+    - Повідомлення про помилку, якщо запит не вдався.
+
+### 3. Тестування асинхронного запиту
+
+- У тій самій директорії `src/components` створено файл **UserProfile.test.tsx**.
+- Використано тестове середовище **Vitest** з **React Testing Library**.
+- Розроблено тести, які перевіряють:
+    - Відображення статичного контенту на сторінці, який описує мету завдання.
+    - Відображення індикатора завантаження під час виконання запиту.
+    - Коректне відображення даних користувача після успішного запиту.
+    - Відображення повідомлення про помилку у разі невдалого запиту.
+- Для імітації відповіді від API використано мокування за допомогою `vi.mock`.
+
+---
+
+## Технології
+
+- React
+- Axios
+- Vitest
+- React Testing Library
+
+---
+
+## Встановлення та запуск
+
+1. Клонуйте репозиторій та перейдіть у директорію проєкту:
+     ```sh
+     git clone <repo-url>
+     cd hw12-react-vitest-app
+     ```
+2. Встановіть залежності:
+     ```sh
+     npm install
+     ```
+3. Запустіть застосунок у режимі розробки:
+     ```sh
+     npm run dev
+     ```
+4. Для запуску тестів використовуйте команду:
+     ```sh
+     npm run test
+     ```
+```markdown
+5. Результат успішного тесту виглядатиме так:
+
+![Результат Тестування](assets/tests.png)
